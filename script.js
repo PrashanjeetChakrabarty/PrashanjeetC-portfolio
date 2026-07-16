@@ -569,10 +569,10 @@ function openModal(sectionId) {
     
     // Show Modal Container
     const modal = document.getElementById('contentModal');
-    modal.classList.add('active');
+    modal.classList.add('open');
     
     // Hide all sections, show target
-    document.querySelectorAll('.modal-section').forEach(sec => sec.style.display = 'none');
+    document.querySelectorAll('.modal-body').forEach(sec => sec.style.display = 'none');
     document.getElementById(sectionId).style.display = 'block';
 
     // Lower engine sound
@@ -582,7 +582,7 @@ function openModal(sectionId) {
 }
 
 function closeModal() {
-    document.getElementById('contentModal').classList.remove('active');
+    document.getElementById('contentModal').classList.remove('open');
     hud.style.display = 'block';
     
     // Move car slightly away to prevent re-triggering instantly
