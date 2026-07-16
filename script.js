@@ -199,7 +199,7 @@ function createEnvironment() {
         tree.position.set(x, 0, z);
         scene.add(tree);
         
-        collidables.push({ mesh: trunk, type: 'static', isTree: true });
+        collidables.push({ mesh: tree, type: 'static', isTree: true });
     }
 
     // Borders
@@ -355,6 +355,12 @@ function startGame() {
         engineAudio.resume();
     }
     initAudio();
+    
+    const bgMusic = document.getElementById('bgMusic');
+    if(bgMusic) {
+        bgMusic.volume = 0.2;
+        bgMusic.play().catch(e => console.log('Music play blocked:', e));
+    }
     
     loadingOverlay.style.opacity = '0';
     setTimeout(() => {
