@@ -27,7 +27,7 @@ let oscillator = null;
 let gainNode = null;
 
 // DOM Elements
-const loadingOverlay = document.getElementById('loadingOverlay');
+const loadingOverlay = document.getElementById('loader-screen');
 const startBtn = document.getElementById('startBtn');
 const hud = document.getElementById('hud');
 const instructionToast = document.getElementById('instructionToast');
