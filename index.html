@@ -4,14 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prashanjeet Chakrabarty | Playable 3D Portfolio</title>
-    <meta name="description" content="Interactive 3D remote-controlled car portfolio of Prashanjeet Chakrabarty. Built using Three.js and custom physics, featuring projects, experience, and education.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Load Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- Game Container for WebGL -->
+    <div id="game-container"></div>
+
+    <!-- Loading Screen -->
+    <div id="loadingOverlay" class="overlay active">
+        <div class="loader-content">
+            <h1 class="glitch-text">PRASHANJEET PORTFOLIO</h1>
+            <p class="loader-status">INITIALIZING 3D ENGINE...</p>
+            <button id="startBtn" class="retro-btn" style="opacity: 0; pointer-events: none;">LOADING ENGINE</button>
+        </div>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud" style="display: none;">
+        <div class="speedometer">
+            SPEED <span id="speedCounter">000</span> MPH
+        </div>
+    </div>
+
+    <!-- Toast Instruction -->
+    <div id="instructionToast" class="toast" style="opacity: 0;">
+        <p>Use W, A, S, D or Arrow Keys to Drive.</p>
+        <p>Drive into the colored rings to explore my portfolio!</p>
+    </div>
+
+    <!-- Mobile Controls -->
+    <div class="mobile-controls" style="display: none;">
+        <div class="d-pad">
+            <button id="btnUp" class="d-btn">↑</button>
+            <div class="d-pad-row">
+                <button id="btnLeft" class="d-btn">←</button>
+                <button id="btnRight" class="d-btn">→</button>
+            </div>
+            <button id="btnDown" class="d-btn">↓</button>
+        </div>
+    </div>
+
+    <!-- Modal System -->
+    <div id="contentModal" class="modal-overlay">
+        <div class="modal-content retro-panel">
+            <button id="closeModal" class="close-btn">X</button>
+            
+            <div id="about" class="modal-section" style="display: none;">
+                <h2>ABOUT ME</h2>
+                <p>Hi, I'm Prashanjeet Chakrabarty! I'm a full-stack developer with a passion for interactive 3D web experiences and building scalable applications.</p>
+                <p>Welcome to my interactive portfolio game. Feel free to drive around and explore my journey!</p>
+            </div>
+
+            <div id="experience" class="modal-section" style="display: none;">
+                <h2>EXPERIENCE</h2>
+                <div class="timeline-item">
+                    <h3>Software Engineer</h3>
+                    <p class="date">2024 - Present</p>
+                    <p>Building high-performance web applications, implementing complex backend architectures, and driving frontend innovation.</p>
+                </div>
+            </div>
+
+            <div id="education" class="modal-section" style="display: none;">
+                <h2>EDUCATION</h2>
+                <div class="timeline-item">
+                    <h3>Computer Science</h3>
+                    <p>Bachelor's Degree</p>
+                    <p>Focused on Data Structures, Algorithms, and Software Engineering principles.</p>
+                </div>
+            </div>
+
+            <div id="projects" class="modal-section" style="display: none;">
+                <h2>PROJECTS</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>CollabFlow</h3>
+                        <p>Real-time collaborative platform built with complex state management.</p>
+                        <a href="https://github.com/PrashanjeetChakrabarty/CollabFlow" target="_blank" class="retro-link">View GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Animated Login Form</h3>
+                        <p>Modern UI/UX implementation with advanced CSS animations.</p>
+                        <a href="https://github.com/PrashanjeetChakrabarty/animated-login-form" target="_blank" class="retro-link">View GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contact" class="modal-section" style="display: none;">
+                <h2>CONTACT</h2>
+                <p>Let's build something amazing together!</p>
+                <div class="contact-links">
+                    <a href="https://github.com/PrashanjeetChakrabarty" target="_blank" class="retro-link">GitHub</a>
+                    <a href="mailto:contact@example.com" class="retro-link">Email</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
 </body>
 </html>
