@@ -12,6 +12,12 @@
     <!-- Game Container for WebGL -->
     <div id="game-container"></div>
 
+    <!-- Floating Labels Container -->
+    <div id="labels-container"></div>
+
+    <!-- Classic Resume Button -->
+    <a href="./resume.pdf" target="_blank" class="classic-resume-btn" id="classicResumeBtn" style="display: none;">CLASSIC RESUME</a>
+
     <!-- Loading Screen -->
     <div id="loader-screen" class="overlay active">
         <div class="loader-content">
@@ -30,8 +36,14 @@
 
     <!-- Toast Instruction -->
     <div id="instructionToast" class="toast" style="opacity: 0;">
-        <p>Use W, A, S, D or Arrow Keys to Drive.</p>
         <p>Drive into the colored rings to explore my portfolio!</p>
+    </div>
+
+    <!-- Permanent Driving Manual -->
+    <div class="controls-manual" id="controlsManual" style="display: none;">
+        <h3>CONTROLS</h3>
+        <p>Move: <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> or <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></p>
+        <p>Close: <kbd>ESC</kbd> or <kbd>X</kbd></p>
     </div>
 
     <!-- Mobile Controls -->
