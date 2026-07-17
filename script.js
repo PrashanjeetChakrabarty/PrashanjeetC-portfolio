@@ -313,6 +313,17 @@ function createInteractiveZones() {
         // Register zone
         sec.mesh = platform;
         sec.ring = ring;
+        
+        // Create HTML Label
+        const labelsContainer = document.getElementById('labels-container');
+        if (labelsContainer) {
+            const label = document.createElement('div');
+            label.className = 'zone-label';
+            label.innerText = sec.label;
+            label.style.color = '#' + sec.color.toString(16).padStart(6, '0');
+            labelsContainer.appendChild(label);
+            sec.labelElement = label;
+        }
     });
 }
 
@@ -368,6 +379,12 @@ function startGame() {
         hud.style.display = 'block';
         instructionToast.style.opacity = '1';
         
+        const manual = document.getElementById('controlsManual');
+        if(manual) manual.style.display = 'block';
+        
+        const classicBtn = document.getElementById('classicResumeBtn');
+        if(classicBtn) classicBtn.style.display = 'block';
+
         // Mobile controls check
         if (window.innerWidth <= 768) {
             document.querySelector('.mobile-controls').style.display = 'flex';
@@ -552,6 +569,22 @@ function checkZones() {
         sec.ring.scale.setScalar(1 + Math.sin(clock.getElapsedTime() * 3) * 0.1);
 
         const dist = car.position.distanceTo(sec.mesh.position);
+        
+        // Update label position
+        if (sec.labelElement) {
+            const tempV = sec.mesh.position.clone();
+            tempV.y += 3; // Float above ring
+            tempV.project(camera);
+            
+            if (tempV.z < 1) { // In front of camera
+                const x = (tempV.x * 0.5 + 0.5) * window.innerWidth;
+                const y = (tempV.y * -0.5 + 0.5) * window.innerHeight;
+                sec.labelElement.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+                sec.labelElement.style.opacity = Math.max(0, 1 - (dist / 80));
+            } else {
+                sec.labelElement.style.opacity = '0';
+            }
+        }
         
         if (dist < 4.5) {
             openModal(sec.id);

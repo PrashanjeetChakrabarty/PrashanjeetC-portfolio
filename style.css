@@ -128,6 +128,83 @@ body, html {
     letter-spacing: 1px;
 }
 
+/* ===== IN-GAME HUD ADDITIONS ===== */
+#labels-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.zone-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.controls-manual {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--green);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    z-index: 50;
+    backdrop-filter: blur(4px);
+}
+
+.controls-manual h3 {
+    color: var(--green);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.controls-manual kbd {
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    margin: 0 0.2rem;
+    color: var(--amber);
+}
+
+.classic-resume-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--amber);
+    color: var(--amber);
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-arcade);
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    z-index: 50;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+    text-shadow: 0 0 5px var(--amber-glow);
+    box-shadow: 0 0 10px rgba(255, 176, 0, 0.2);
+}
+
+.classic-resume-btn:hover {
+    background: var(--amber);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--amber-glow);
+}
+
 .progress-bar-container {
     width: 100%;
     height: 12px;

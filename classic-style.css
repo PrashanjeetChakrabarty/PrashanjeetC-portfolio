@@ -12,12 +12,12 @@
 
 :root {
     --bg-color: transparent; /* For Vanta.js */
-    --panel-bg: rgba(15, 23, 42, 0.4);
-    --panel-border: rgba(255, 255, 255, 0.1);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent-color: #38bdf8;
-    --accent-glow: 0 0 20px rgba(56, 189, 248, 0.4);
+    --panel-bg: rgba(30, 0, 0, 0.5); /* Dark red tint */
+    --panel-border: rgba(255, 0, 50, 0.2);
+    --text-primary: #fff1f2;
+    --text-secondary: #fda4af;
+    --accent-color: #ff0033;
+    --accent-glow: 0 0 20px rgba(255, 0, 51, 0.6);
 }
 
 body {
